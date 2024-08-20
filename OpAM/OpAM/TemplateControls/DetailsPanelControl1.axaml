@@ -1,0 +1,71 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:OpAM.TemplateControls">
+  <Design.PreviewWith>
+    <controls:DetailsPanelControl1 />
+  </Design.PreviewWith>
+
+	<Design.PreviewWith>
+		<Border Background="{DynamicResource ResourceKey=DarkBlueBrush}">
+			<StackPanel Margin="50" Spacing="10">
+				<controls:DetailsPanelControl1/>
+				<controls:DetailsPanelControl1 Classes="button" />
+			</StackPanel>
+		</Border>
+
+
+	</Design.PreviewWith>
+
+
+	<Style Selector="controls|DetailsPanelControl1">
+
+
+		<!-- Set Defaults -->
+
+		<Setter Property="Background" Value="{DynamicResource ResourceKey=LightBlueBrush}"></Setter>
+		<Setter Property="Foreground" Value="White"></Setter>
+
+
+
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border Padding="15,7" Background="{TemplateBinding Property=Background}">
+					<StackPanel>
+						<Label Foreground="{TemplateBinding Property=Foreground}" Padding="0" FontSize="24" HorizontalAlignment="Center" Content="{TemplateBinding Property=LargeText}"></Label>
+						<Label Foreground="{TemplateBinding Property=Foreground}" Padding="0" FontSize="14" HorizontalAlignment="Center" Content="{TemplateBinding Property=SmallText}"></Label>
+					</StackPanel>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+
+
+
+	</Style>
+
+
+	<Style Selector="controls|DetailsPanelControl1.button">
+
+
+		<!-- Set Defaults -->
+
+		<Setter Property="Background" Value="{DynamicResource ResourceKey=LightBlueBrush}"></Setter>
+		<Setter Property="Foreground" Value="White"></Setter>
+		
+
+
+
+		<Setter Property="Template">
+			<ControlTemplate>
+
+				<StackPanel>
+					<Label Padding="15,7" CornerRadius="20"  Foreground="{TemplateBinding Property=Foreground}" Background="{TemplateBinding Property=Background}" FontSize="24" HorizontalAlignment="Center" Content="{TemplateBinding Property=LargeText}" ></Label>
+					<Label Foreground="{DynamicResource ResourceKey=BrightBlueBrush}" Padding="0" Margin="0,5" FontSize="14" FontWeight="DemiBold" HorizontalAlignment="Center" Content="{TemplateBinding Property=SmallText}"></Label>
+				</StackPanel>
+
+			</ControlTemplate>
+		</Setter>
+
+
+
+	</Style>
+</Styles>

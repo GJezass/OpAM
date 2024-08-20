@@ -1,0 +1,53 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:OpAM.TemplateControls">
+  <Design.PreviewWith>
+	  <Border Background="White">
+		  <controls:ModuleBoxControl Margin="25" LargeTextLabel="Reports" TextImage="/Assets/icons/reports.png"  />  
+	  </Border>
+	  
+  </Design.PreviewWith>
+
+	<Style Selector="Button.Module">
+		<Setter Property="Background" Value="Transparent"></Setter>
+		<!--<Setter Property="Width" Value="55"></Setter>-->
+		<Setter Property="VerticalAlignment" Value="Center"></Setter>
+		<Setter Property="HorizontalAlignment" Value="Center"></Setter>
+	</Style>
+
+	<Style Selector="Button.Module:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="Transparent"></Setter>
+		
+	</Style>
+
+	<Style Selector="controls|ModuleBoxControl Border:pointerover">
+		<Setter Property="Opacity" Value="0.6"></Setter>
+	</Style>
+
+  <Style Selector="controls|ModuleBoxControl">
+    <!-- Set Defaults -->
+	  <Setter Property="Background" Value="{DynamicResource ModuleBlueBrush}"></Setter>
+	  <Setter Property="Foreground" Value="{DynamicResource ModuleTextBrush}"></Setter>
+	  
+	  
+    <Setter Property="Template">
+      <ControlTemplate>
+		  <Border Padding="0" Margin="20,0,20,15" Background="{TemplateBinding Background}" CornerRadius="5" BoxShadow="0 3 10 2 darkgray"  >
+			  <Button HorizontalAlignment="Center" Margin="0" Width="155" Height="125" >
+				  <StackPanel VerticalAlignment="Center" >
+					  <Button Classes="Module">
+						  <Image Source="{TemplateBinding TextImage}"></Image>
+					  </Button>
+
+					  <Label Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20" FontWeight="DemiBold" Content="{TemplateBinding LargeTextLabel}"></Label>
+
+				  </StackPanel>
+			  </Button>
+			  
+		  </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+	
+	
+</Styles>

@@ -1,0 +1,60 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:OpAM.TemplateControls">
+  <Design.PreviewWith>
+	  <Border Background="AliceBlue" >
+		  <controls:OverrideControl1 LargeTextLabel="Max Reached" TextImage="/Assets/icons/alert.png" />	  
+	  </Border>
+    
+  </Design.PreviewWith>
+	
+	
+
+	<Style Selector="Button.Module">
+		<Setter Property="Background" Value="Transparent"></Setter>
+		<Setter Property="Width" Value="55"></Setter>
+		<Setter Property="VerticalAlignment" Value="Center"></Setter>
+		<Setter Property="HorizontalAlignment" Value="Center"></Setter>
+	</Style>
+
+	<Style Selector="Button.Module:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="Transparent"></Setter>
+
+	</Style>
+
+	<Style Selector="Button.alert:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="#9db2b3"></Setter>
+		<Setter Property="BorderThickness" Value="3"></Setter>
+		<Setter Property="BorderBrush" Value="Gray"></Setter>
+		<Setter Property="Opacity" Value="0.6"></Setter>
+
+	</Style>
+
+  <Style Selector="controls|OverrideControl1">
+    <!-- Set Defaults -->
+
+	  <Setter Property="Background" Value="{DynamicResource LightOverRideBack}"></Setter>
+	  <Setter Property="Foreground" Value="{DynamicResource FadedRedBrush}"></Setter>
+	  
+	  
+    <Setter Property="Template">
+      <ControlTemplate>
+		  <Border Padding="25,15,25,0" Margin="15" BoxShadow="0 3 10 2 darkgray" Background="{TemplateBinding Background}" CornerRadius="5" >
+
+			  <StackPanel>
+				  <Button Classes="alert" Content="Override" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Top"
+						  FontSize="24" Background="#9db2b3" BorderThickness="3" BorderBrush="Gray" Margin="0,5"></Button>
+				  
+				  <Button Classes="Module" >
+					  <Image Source="{TemplateBinding TextImage}"></Image>
+				  </Button>
+
+				  <Label Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="28" FontWeight="Bold" Content="{TemplateBinding LargeTextLabel}"></Label>
+
+			  </StackPanel>
+			  
+		  </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

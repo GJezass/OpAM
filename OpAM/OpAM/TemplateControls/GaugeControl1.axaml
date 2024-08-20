@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="OpAM.TemplateControls.GaugeControl1"
+			 xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+			 xmlns:vms="using:OpAM.ViewModels.MediaModels"
+			 xmlns:controls="using:OpAM.TemplateControls">
+
+	<UserControl.DataContext>
+		<vms:GaugeViewModel />
+	</UserControl.DataContext>
+
+
+	<Grid>
+		<Border Background="Transparent" Padding="0">
+			<lvc:PieChart Margin="35"
+			Series="{Binding Series}"
+			InitialRotation="-170"
+			MaxAngle="250"
+			Total="100"
+			LegendPosition="Bottom"
+			BorderBrush="Black" BorderThickness="1">
+				
+			</lvc:PieChart>
+		</Border>
+
+		<controls:LedControl1 LedAtivo="{Binding MaxReached}" Width="150" Height="150" HorizontalAlignment="Right" VerticalAlignment="Top" ></controls:LedControl1>
+		
+		<Button Background="DarkGray" BorderBrush="Black" BorderThickness="1" Command="{Binding DoRandomValueCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" >Change Value</Button>
+
+		<controls:OverrideControl1 LargeTextLabel="Max Reached" TextImage="/Assets/icons/alert.png" Width="300"  HorizontalAlignment="Left" VerticalAlignment="Bottom"></controls:OverrideControl1>
+		
+	</Grid>
+		
+	
+	
+	
+	
+	
+</UserControl>

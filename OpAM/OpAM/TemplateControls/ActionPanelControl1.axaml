@@ -1,0 +1,64 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:OpAM.TemplateControls">
+  <Design.PreviewWith>
+	  <Border Background="AliceBlue">
+		  <controls:ActionPanelControl1 ButtonTextImage="/Assets/icons/AudioOn.png" 
+										 LargeTextLabel="Enabled"
+										TextImage="/Assets/icons/gpsAntenna.png"/>
+	  </Border>
+    
+  </Design.PreviewWith>
+
+	<Style Selector="Button.Module">
+		<Setter Property="Background" Value="Transparent"></Setter>
+		<!--<Setter Property="Width" Value="55"></Setter>-->
+		<Setter Property="VerticalAlignment" Value="Center"></Setter>
+		<Setter Property="HorizontalAlignment" Value="Center"></Setter>
+	</Style>
+
+
+	<Style Selector="controls|ActionPanelControl1 Border:pointerover">
+		<Setter Property="Opacity" Value="0.6"></Setter>
+	</Style>
+
+
+  <Style Selector="controls|ActionPanelControl1">
+    <!-- Set Defaults -->
+	  <Setter Property="Foreground" Value="#63a093"></Setter>
+	  
+    <Setter Property="Template">
+      <ControlTemplate>
+
+		  <Grid Margin="20" RowDefinitions="Auto,*" ColumnDefinitions="Auto,*">
+			  
+			  <Border Grid.Row="0" Grid.Column="0" CornerRadius="5" Background="#a8d6d9" BoxShadow="0 3 10 2 darkgray" BorderThickness="4" BorderBrush="{TemplateBinding Foreground}" Padding="0" Margin="15,0"  >
+				  
+				  <Button Height="130" Width="150">
+					  <StackPanel VerticalAlignment="Center">
+						  <Button Classes="Module" >
+							  <Image Source="{TemplateBinding ButtonTextImage}"></Image>
+						  </Button>
+
+						  <Label Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20"  Content="{TemplateBinding LargeTextLabel}"></Label>
+					  </StackPanel>
+				  </Button>
+				  
+			  </Border>
+
+			  <Border Margin="15,0,0,0" Grid.Row="0" Grid.Column="1" >
+				  
+					  <Image Height="120" Width="150" Source="{TemplateBinding TextImage}"></Image>
+				  
+			  </Border>
+			  
+			  
+		  </Grid>
+		   
+		  
+      
+      
+	  </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

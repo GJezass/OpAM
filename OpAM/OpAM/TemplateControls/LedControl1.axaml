@@ -1,0 +1,59 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:OpAM.TemplateControls">
+  <Design.PreviewWith>
+	  <Border Background="AliceBlue">
+		  <controls:LedControl1 LedAtivo="true" />
+	  </Border>
+    
+  </Design.PreviewWith>
+
+  <Style Selector="controls|LedControl1">
+ 
+	  
+	  
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+		  <Grid x:Name="MainGridLed" Background="Transparent"  >
+			  <Border x:Name="OuterBorder" BorderThickness="6" 
+					  CornerRadius="200"  BoxShadow="0 0 10 3 Black" Margin="50">
+				  
+				  <!--Quando ativo, visível-->
+				  
+				  <Border IsVisible="{TemplateBinding LedAtivo}" CornerRadius="200" BoxShadow="0 0 30 4 Red" x:Name="InnerBorder">
+					  
+					<Border.Background>
+
+					  <RadialGradientBrush GradientOrigin="0.332,0.222">
+						  <GradientStop Color="White"></GradientStop>
+						  <GradientStop Color="Red"  Offset="0.035" ></GradientStop>
+					  </RadialGradientBrush>
+					</Border.Background>
+					  
+				  </Border>
+				  
+				  <!-- Quando não está ativo -->
+
+				  <Border.Background>
+
+						  <RadialGradientBrush GradientOrigin="0.332,0.222">
+							  <GradientStop Color="White"></GradientStop>
+							  <GradientStop Color="#999999"  Offset="0.035" ></GradientStop>
+						  </RadialGradientBrush>
+					  </Border.Background>
+				  
+
+				  <Border.BorderBrush>
+
+					  <RadialGradientBrush>
+						  <GradientStop Color="#FF020202" Offset="0.383"/>
+						  <GradientStop Color="Darkgray" Offset="0.9"/>
+					  </RadialGradientBrush>
+				  </Border.BorderBrush>
+			  </Border>
+		  </Grid>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

@@ -1,0 +1,130 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:OpAM.ViewModels"
+			 xmlns:controls="clr-namespace:OpAM.TemplateControls;assembly=OpAM"
+			 xmlns:local="clr-namespace:OpAM"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+			 x:Class="OpAM.Views.MainView"
+			 xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+			 >
+
+	<Design.DataContext>
+		<viewModels:MainViewModel />
+	</Design.DataContext>
+
+	<!--Main Grind-->
+	<Grid Name="MainGrid" RowDefinitions="Auto, Auto, Auto, *,Auto" Background="{DynamicResource lightBackground}" >
+
+		<Grid.Styles>
+
+			<Style Selector="Button.topNav">
+				<Setter Property="Background" Value="Transparent"></Setter>
+				<Setter Property="Width" Value="55"></Setter>
+				<Setter Property="Margin" Value="15"></Setter>
+				<Setter Property="VerticalAlignment" Value="Center"></Setter>
+			</Style>
+
+			<Style Selector="Button.topNav Image">
+				<Setter Property="Width" Value="25"></Setter>
+
+			</Style>
+
+			<Style Selector="Button.topNav /template/ ContentPresenter">
+				<Setter Property="Transitions">
+					<Transitions>
+						<TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2"></TransformOperationsTransition>
+					</Transitions>
+				</Setter>
+			</Style>
+
+			<Style Selector="Button.topNav:pointerover /template/ ContentPresenter">
+				<Setter Property="Background" Value="Transparent"></Setter>
+				<Setter Property="RenderTransform" Value="scale(1.11)"></Setter>
+				<Setter Property="Opacity" Value="0.6"></Setter>
+			</Style>
+
+		</Grid.Styles>
+
+		<!--Top Bar-->
+		<Grid Grid.Row="0" ColumnDefinitions="Auto,Auto,Auto,*,*" Background="Transparent" Height="70">
+			<Border Background="{DynamicResource NavBarFadedDarkGreen}" Grid.ColumnSpan="4" CornerRadius="0,0,180,0" BoxShadow="0 3 10 2 darkgray">
+
+			</Border>
+			<Button Classes="topNav" Grid.Column="0" >
+				<Image Source="avares://OpAM/Assets/icons/menuRound.png"></Image>
+			</Button>
+			<Separator Background="#99b5b7" Grid.Column="1" Width="1" Height="20" Margin="0" Opacity="0.6"></Separator>
+			<Button Classes="topNav" Grid.Column="2" >
+				<Image Source="avares://OpAM/Assets/icons/homeIcon.png"></Image>
+			</Button>
+			<Button Classes="topNav" Grid.Column="3" Margin="0">
+				<Image Source="/Assets/icons/notiBell.png"></Image>
+			</Button>
+			<Label HorizontalAlignment="Right" Margin="15,10,70,0" Grid.Column="5" Content="OpAM" Foreground="Black" FontSize="40" FontWeight="Bold"
+				   VerticalAlignment="Center"></Label>
+
+
+		</Grid>
+
+		<!--Module panel-->
+		<Grid Grid.Row="1" Margin="25,30,25,20">
+			<StackPanel Orientation="Horizontal">
+				<controls:ModuleBoxControl LargeTextLabel="Reports" TextImage="/Assets/icons/reports.png"/>
+				<controls:ModuleBoxControl LargeTextLabel="Alarms" TextImage="/Assets/icons/alarms.png" />
+				<controls:ModuleBoxControl LargeTextLabel="Logs" TextImage="/Assets/icons/logs.png" />
+			</StackPanel>
+
+
+		</Grid>
+
+		<!--Gauge panel-->
+		<Border Grid.Row="2" BorderThickness="0,5,0,0" BorderBrush="{DynamicResource BR1}">
+			<Grid  Background="AliceBlue" ColumnDefinitions="*,Auto,Auto">
+			
+					<!--<controls:GaugeControl1 Grid.Column="0"></controls:GaugeControl1>-->
+			
+				<controls:ArcGaugeControl1 VerticalAlignment="Top" GaugeTitle="Total Shaft Power" GaugeUnits="Kw" GaugeColor="#c6cca5" SettingGaugeColor="Red" SettingValue="30" Grid.Column="0" 
+										   ></controls:ArcGaugeControl1>
+			
+				<StackPanel Grid.Column="1" >
+					<controls:DetailsPanelControl1  LargeText="150 RPM" SmallText="Rotation Speed"></controls:DetailsPanelControl1>
+					<controls:DetailsPanelControl1	LargeText="170 kN.m" SmallText="Shaft Torque"></controls:DetailsPanelControl1>
+					<controls:DetailsPanelControl1  LargeText="14 knots" SmallText="Speed Over Ground"></controls:DetailsPanelControl1>
+				
+					<controls:DetailsPanelControl1 Margin="0,10,0,0" Classes="button"  LargeText="150 RPM" SmallText="Rotation Speed"></controls:DetailsPanelControl1>
+					<controls:DetailsPanelControl1 Classes="button" LargeText="170 kN.m" SmallText="Shaft Torque"></controls:DetailsPanelControl1>
+					<controls:DetailsPanelControl1 Classes="button" LargeText="14 knots" SmallText="Speed Over Ground"></controls:DetailsPanelControl1>
+				</StackPanel>
+				
+				
+				<StackPanel Grid.Column="2" >
+					<controls:ActionPanelControl1 
+						ButtonTextImage="/Assets/icons/AudioOn.png" 
+										 LargeTextLabel="Enabled"
+										TextImage="/Assets/icons/gpsAntenna.png"></controls:ActionPanelControl1>
+				</StackPanel>
+			
+			
+			
+			
+			</Grid>
+		</Border>
+
+		<!--Graph panel-->
+		<Grid Grid.Row="3" Background="{DynamicResource BR2b}" ColumnDefinitions="*">
+			<controls:ShaPowGraphControl1 ></controls:ShaPowGraphControl1>
+		</Grid>
+
+
+		<!--Footer-->
+		<Grid Grid.Row="4">
+			
+		</Grid>
+
+	</Grid>
+
+
+
+</UserControl>

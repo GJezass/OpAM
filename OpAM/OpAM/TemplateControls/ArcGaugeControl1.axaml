@@ -1,0 +1,245 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:converters="using:OpAM.Converters"
+             mc:Ignorable="d" d:DesignWidth="650" d:DesignHeight="650"
+			 xmlns:vms="using:OpAM.ViewModels.MediaModels"
+             x:Class="OpAM.TemplateControls.ArcGaugeControl1"
+			 xmlns:controls="using:OpAM.TemplateControls"
+			 >
+
+
+	<!--<UserControl.DataContext>
+		<vms:ArcGaugeViewModel />
+	</UserControl.DataContext>-->
+	
+	<UserControl.Resources>
+		
+
+		<SolidColorBrush Color="#566981" x:Key="BR2"></SolidColorBrush>
+		<SolidColorBrush Color="#778690" x:Key="BR3"></SolidColorBrush>
+		<RadialGradientBrush x:Key="BR4">
+			<GradientStop Color="#778690" Offset="0"></GradientStop>
+			<GradientStop Color="#566981" Offset="1"></GradientStop>
+		</RadialGradientBrush>
+		<SolidColorBrush Color="#f88863" x:Key="BR5"></SolidColorBrush>
+		<SolidColorBrush Color="#d8c8b8" x:Key="BR6"></SolidColorBrush>
+		<converters:Double2StringConverter x:Key="double2string"></converters:Double2StringConverter>
+	</UserControl.Resources>
+
+
+	<Border Background="WhiteSmoke" Padding="5" CornerRadius="0,0,10,0" Margin="0,0,10,20" BoxShadow="0 3 10 2 darkgray">
+		<Grid DataContext="{Binding RelativeSource={RelativeSource AncestorLevel=1, AncestorType=UserControl, Mode=FindAncestor}}" >
+
+
+			<Grid Margin="0,20"  Width="350" Height="350" >
+				<Border Width="350" Height="350" BoxShadow="0 0 15 1 Black" CornerRadius="300" BorderThickness="5"></Border>
+				<Ellipse Fill="{DynamicResource BR1b}" ></Ellipse>
+
+				<Grid Height="320" Width="320">
+					<Ellipse Height="320" Width="320" Fill="{StaticResource BR2}"></Ellipse>
+
+					<Path StrokeThickness="1" Data="M160,160 L160,320 A160,160,0,1,1,320,160 L160,160"
+						  Fill="{StaticResource BR3}" ></Path>
+
+					<Path  StrokeThickness="1" Fill="{Binding GaugeColor}" x:Name="Arco">
+
+						<Path.Data>
+							<PathGeometry>
+								<PathFigure StartPoint="160,160">
+									<LineSegment Point="160,320"></LineSegment>
+									<ArcSegment Point="160,320" Size="160,160" IsLargeArc="False"
+												SweepDirection="Clockwise" />
+									<LineSegment Point="160,160"></LineSegment>
+								</PathFigure>
+							</PathGeometry>
+						</Path.Data>
+
+					</Path>
+
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						   Fill="{StaticResource BR2}"/>
+
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}" >
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="15"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}"  Margin="159.5,0">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="30"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}" Margin="159.5,0">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="45"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}" Margin="159.5,0">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="60"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}" Margin="159.5,0">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="75"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}" Margin="159.5,0">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="90"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}" Margin="159.5,0">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="105"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}" Margin="159.5,0">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="120"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}" Margin="159.5,0">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="135"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}" Margin="159.5,0">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="150"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+					<Rectangle Stroke="{x:Null}" Width="1" Height="320"
+						Fill="{StaticResource BR2}" Margin="159.5,0">
+						<Rectangle.RenderTransform>
+							<TransformGroup>
+								<ScaleTransform/>
+								<SkewTransform/>
+								<RotateTransform Angle="165"/>
+								<TranslateTransform/>
+							</TransformGroup>
+						</Rectangle.RenderTransform>
+					</Rectangle>
+
+					<Ellipse Width="250" Height="250" VerticalAlignment="Bottom" Margin="0,0,0,5" Fill="{StaticResource BR4}"></Ellipse>
+
+					<TextBlock Text="{Binding GaugeTitle}"
+							   FontSize="20"
+							   FontWeight="Bold"
+							   VerticalAlignment="Top"
+							   HorizontalAlignment="Center"
+							   Margin="0,110,0,0" Foreground="{StaticResource BR5}"></TextBlock>
+
+					<TextBlock Text="{Binding GaugeUnits}"
+							   FontSize="24"
+							   FontWeight="Bold"
+							   VerticalAlignment="Bottom"
+							   HorizontalAlignment="Center"
+							   Margin="0,0,0,30"
+							   Foreground="{StaticResource BR6}"></TextBlock>
+
+					<TextBlock Text="{ Binding Value, Converter={StaticResource double2string}}"
+							   FontSize="80"
+							
+							   VerticalAlignment="Center"
+							   HorizontalAlignment="Center"
+							   Margin="0,50,0,0"
+							   Foreground="{StaticResource BR6}"></TextBlock>
+
+					<TextBlock Text="{Binding SettingValue, Converter={StaticResource double2string}}"
+							   Foreground="{Binding SettingGaugeColor}"
+							   FontSize="24"
+							   VerticalAlignment="Bottom"
+							   HorizontalAlignment="Center"
+							   Margin="0,0,0,60">
+
+					</TextBlock>
+
+				</Grid>
+
+				<Path x:Name="ptSetup" Stretch="Fill" Stroke="{Binding SettingGaugeColor}"
+					  StrokeThickness="6"
+					  Margin="169,0,169,2"
+					  VerticalAlignment="Bottom"
+					  Height="10"
+					  Data="M175,341 L172,345 178,345 z"
+						RenderTransformOrigin="0.5,-165"
+				  ></Path>
+
+
+				<controls:LedControl1 LedAtivo="{Binding MaxReached}" Width="135" Height="135" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,30,0" ></controls:LedControl1>
+			</Grid>
+
+
+
+
+			<controls:OverrideControl1 LargeTextLabel="Max Reached" TextImage="/Assets/icons/alert.png" Width="300"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0"></controls:OverrideControl1>
+
+
+		</Grid>
+	</Border>
+	
+
+</UserControl>
